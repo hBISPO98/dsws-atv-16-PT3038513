@@ -1,0 +1,11 @@
+Querido(a) {{ user.username }},
+
+Para confirmar o seu novo endereço de e-mail, clique no seguinte link:
+
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+Atenciosamente,
+
+Equipe Flasky
+
+Observação: as respostas para este endereço de e-mail não são monitoradas.

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky - Iniciar Sessão{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Iniciar Sessão</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+    <br>
+    <p>Esqueceu sua senha? <a href="{{ url_for('auth.password_reset_request') }}">Clique aqui para redefinir</a>.</p>
+    <p>Novo Usuário? <a href="{{ url_for('auth.register') }}">Clique aqui para se registrar</a>.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<form method="POST" role="form">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+        <label class="control-label" for="nome">Qual é o nome do curso?</label>
+        {{ form.nome(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label" for="descricao">Descrição (250 caracteres)</label>
+        {{ form.descricao(class="form-control", maxlength="250") }}
+    </div>
+    
+    {{ form.submit(value="Cadastrar", class="btn btn-default") }}
+</form>
+
+<h2>Relação de cursos cadastrados</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td><strong>{{ curso.nome }}</strong></td>
+            <td>{{ curso.descricao }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">Nenhum curso cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
